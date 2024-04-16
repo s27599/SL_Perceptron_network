@@ -1,0 +1,9 @@
+In der Ingenieurwissenschaft wird von der Fertigung als zusammenbauender Produktion und Erzeugung für die chemische Produktion gesprochen.[27] Von Fabrikaten ist nur dann die Rede, wenn die neuen Produkte Eigenschaften aufweisen, die sie von den zu ihrer Herstellung verwandten Grundstoffen wesentlich unterscheiden.[28] Ist die Abweichung nicht wesentlich, liegt eine Veredelung vor.
+
+Produktionstechnik
+In der industriellen Produktionstechnik wird die Fertigung (von Stückgütern), die Verfahrenstechnik (von Fließgütern / von Rohstoffen zu Gütern) und die Energietechnik unterschieden.
+
+Unter Fertigung versteht man die Herstellung und Montage von zählbaren festen Teilen mit geometrisch bestimmter Gestalt (so genannte Stückgüter). Die Fertigungstechnik beschreibt die Fertigungsverfahren wie Fräsen, Gießen, Schmieden oder Schweißen.
+Die Energietechnik beschäftigt sich mit Gewinnung, Umwandlung, Energietransport, Energiespeicherung und Energieverbrauch in allen Energieformen.
+In der Verfahrenstechnik wird primär die Verarbeitung von Rohmaterialien zu einem Produkt, unter Nutzung chemisch-physikalischer oder biologischer Vorgänge betrachtet. Sie steht damit zwischen dem Abbau der Rohstoffe und der Fertigstellung von Produkten. Dabei werden kontinuierliche und diskontinuierliche Prozesse unterschieden. Hier wird der Güterausstoß meist massen- oder volumenorientiert gemessen, da er nicht oder nur schwer zählbar ist etwa Mehl, Salz, Eisen, oder Medikamentenpillen. Anwendungsgebiete sind v. a. die chemische und Nahrungsmittelindustrie, Rohstoffförderung sowie Fließ- und Schüttgüter wie Zement.
+Die verschiedenen Produktionsverfahren werden aus betriebswirtschaftlicher Sicht unterschieden nach der Anzahl der gefertigten Teile als Einteilungskriterium (Einzel-, Serien- oder Massenfertigung) und der Fertigungsorganisation (Werkstatt- oder Reihenfertigung).

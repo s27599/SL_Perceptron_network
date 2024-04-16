@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.List;
 
 public class Perceptron {
 
@@ -11,22 +10,22 @@ public class Perceptron {
 
     public Perceptron(String name) {
         this.name = name;
-        this.weights = new double[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+//        this.weights = new double[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+        this.weights = new double[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
         this.threshold = 0.5;
-        this.learningConst = 0.25;
+        this.learningConst = 0.2;
     }
 
-public double testFinal(double[] inputs){
-    if (inputs.length != weights.length) {
-        throw new IllegalArgumentException("you must have the same amount of inputs and weights");
+    public double testFinal(double[] inputs) {
+        if (inputs.length != weights.length) {
+            throw new IllegalArgumentException("you must have the same amount of inputs and weights");
+        }
+        double sum = 0;
+        for (int i = 0; i < weights.length; i++) {
+            sum += weights[i] * inputs[i];
+        }
+        return sum - threshold;
     }
-    double sum = 0;
-    for (int i = 0; i < weights.length; i++) {
-        sum += weights[i] * inputs[i];
-    }
-    return sum-threshold;
-}
-
 
 
     public int test(double[] inputs) {
