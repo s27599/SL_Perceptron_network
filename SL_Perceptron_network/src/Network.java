@@ -31,11 +31,11 @@ public class Network {
             ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
             for (final File fileEntry : Objects.requireNonNull(new File(path).listFiles())) {
                 if (fileEntry.isDirectory()) {
-//                    String dirName = file.getParent().getFileName().toString();
                     String dirName = fileEntry.getName();
-                    if (!perceptrons.containsKey(dirName)) {
-                        perceptrons.put(dirName, new Perceptron(dirName));
-                    }
+                    if (dirName.charAt(0) != '#')
+                        if (!perceptrons.containsKey(dirName)) {
+                            perceptrons.put(dirName, new Perceptron(dirName));
+                        }
                 }
             }
 
@@ -49,26 +49,26 @@ public class Network {
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     String dirName = file.getParent().getFileName().toString();
 
+                    if (perceptrons.containsKey(dirName))
+                        try (
+                                FileChannel inputChannel = FileChannel.open(file, StandardOpenOption.READ, StandardOpenOption.CREATE);
+                        ) {
+                            inputChannel.read(buffer);
+                            buffer.flip();
+                            CharBuffer decoded = StandardCharsets.UTF_8.decode(buffer);
+                            Map<Character, Double> letters = countLetters(decoded.array());
+                            double[] primitiveValues = processMapToDouble(letters);
 
-                    try (
-                            FileChannel inputChannel = FileChannel.open(file, StandardOpenOption.READ, StandardOpenOption.CREATE);
-                    ) {
-                        inputChannel.read(buffer);
-                        buffer.flip();
-                        CharBuffer decoded = StandardCharsets.UTF_8.decode(buffer);
-                        Map<Character, Double> letters = countLetters(decoded.array());
-                        double[] primitiveValues = processMapToDouble(letters);
-
-                        perceptrons.get(dirName).learn(primitiveValues, 1);
-                        for (Map.Entry<String, Perceptron> entry : perceptrons.entrySet()) {
-                            if (!entry.getKey().equals(dirName)) {
-                                entry.getValue().learn(primitiveValues, 0);
+                            perceptrons.get(dirName).learn(primitiveValues, 1);
+                            for (Map.Entry<String, Perceptron> entry : perceptrons.entrySet()) {
+                                if (!entry.getKey().equals(dirName)) {
+                                    entry.getValue().learn(primitiveValues, 0);
+                                }
                             }
+                            buffer.clear();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        buffer.clear();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
 
                     return FileVisitResult.CONTINUE;
